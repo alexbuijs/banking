@@ -1,0 +1,7 @@
+= simple_form_for @account, :html => { :class => 'form-horizontal' } do |f|
+  = f.input :user_id
+  = f.input :number
+  = f.input :current_amount
+  .form-actions
+    = f.button :submit, :class => 'btn-primary'
+    = link_to t('.cancel', :default => t("helpers.links.cancel")), accounts_path, :class => 'btn'

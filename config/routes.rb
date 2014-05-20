@@ -1,4 +1,8 @@
 Banking::Application.routes.draw do
+  resources :transactions
+
+  resources :accounts
+
   devise_for :users, skip: [:sessions, :passwords, :registrations]
    as :user do
      get 'signin' => 'devise/sessions#new', as: :new_user_session
