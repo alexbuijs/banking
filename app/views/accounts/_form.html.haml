@@ -1,5 +1,5 @@
 = simple_form_for @account, :html => { :class => 'form-horizontal' } do |f|
-  = f.input :user_id
+  = f.input :user_id, collection: User.all, label_method: :username
   = f.input :number
   = f.input :current_amount
   .form-actions

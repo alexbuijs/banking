@@ -6,6 +6,7 @@ gem 'haml'
 gem 'twitter-bootstrap-rails'
 gem 'devise'
 gem 'simple_form'
+gem 'select2-rails'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
 
@@ -40,6 +41,7 @@ group :development, :test do
   gem 'capybara'
   gem 'factory_girl_rails'
   gem 'forgery'
+  gem 'shoulda-matchers'
 end
 
 group :doc do

@@ -122,6 +122,10 @@ GEM
     sdoc (0.4.0)
       json (~> 1.8)
       rdoc (~> 4.0, < 5.0)
+    select2-rails (3.5.7)
+      thor (~> 0.14)
+    shoulda-matchers (2.6.1)
+      activesupport (>= 3.0.0)
     simple_form (3.0.2)
       actionpack (~> 4.0)
       activemodel (~> 4.0)
@@ -176,6 +180,8 @@ DEPENDENCIES
   rspec-rails
   sass-rails (~> 4.0.2)
   sdoc
+  select2-rails
+  shoulda-matchers
   simple_form
   sqlite3
   therubyracer
