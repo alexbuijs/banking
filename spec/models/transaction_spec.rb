@@ -1,5 +1,8 @@
 require 'spec_helper'
 
 describe Transaction do
-  pending "add some examples to (or delete) #{__FILE__}"
+  describe 'associations' do
+    it { should belong_to(:sender).class_name('User') }
+    it { should belong_to(:receiver).class_name('User') }
+  end
 end
