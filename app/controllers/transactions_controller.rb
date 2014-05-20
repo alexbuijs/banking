@@ -1,9 +1,10 @@
 class TransactionsController < ApplicationController
   before_action :set_transaction, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!
 
   # GET /transactions
   def index
-    @transactions = Transaction.all
+    @transactions = Transaction.for_user(current_user)
   end
 
   # GET /transactions/1
@@ -13,10 +14,6 @@ class TransactionsController < ApplicationController
   # GET /transactions/new
   def new
     @transaction = Transaction.new
-  end
-
-  # GET /transactions/1/edit
-  def edit
   end
 
   # POST /transactions
@@ -30,21 +27,6 @@ class TransactionsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /transactions/1
-  def update
-    if @transaction.update(transaction_params)
-      redirect_to @transaction, notice: 'Transaction was successfully updated.'
-    else
-      render action: 'edit'
-    end
-  end
-
-  # DELETE /transactions/1
-  def destroy
-    @transaction.destroy
-    redirect_to transactions_url, notice: 'Transaction was successfully destroyed.'
-  end
-
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_transaction
@@ -53,6 +35,6 @@ class TransactionsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def transaction_params
-      params.require(:transaction).permit(:sender_id, :receiver_id, :amount)
+      params.require(:transaction).permit(:receiver_id, :amount).merge(sender: current_user)
     end
 end

@@ -1,4 +1,11 @@
 - if user_signed_in?
-  %p= link_to 'Sign out', destroy_user_session_path, method: :delete
+  .pull-right= link_to 'Sign out', destroy_user_session_path, method: :delete
+  .page-header
+    %h2= "Hello #{current_user.username}!"
+  %p= "The current balance on your account is: #{current_user.current_amount ? current_user.current_amount : 0}"
+  - if current_user.current_amount.to_f > 0
+    %p= link_to 'Create a new transaction', new_transaction_path
+  - else
+    %P You cannot make any transactions at this moment
 - else
   %p= link_to 'Sign in', new_user_session_path

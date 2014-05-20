@@ -2,8 +2,8 @@
 
 FactoryGirl.define do
   factory :transaction do
-    sender nil
-    receiver nil
+    sender  { create :user, :with_balance }
+    receiver { create :user }
     amount "9.99"
   end
 end

@@ -1,5 +1,5 @@
 Banking::Application.routes.draw do
-  resources :transactions
+  resources :transactions, only: [:index, :show, :new, :create]
 
   resources :accounts
 

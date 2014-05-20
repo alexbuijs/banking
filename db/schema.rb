@@ -16,7 +16,7 @@ ActiveRecord::Schema.define(version: 20140520195421) do
   create_table "accounts", force: true do |t|
     t.integer  "user_id"
     t.decimal  "current_amount", precision: 10, scale: 2
-    t.integer  "number"
+    t.string   "number"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
